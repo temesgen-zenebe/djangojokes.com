@@ -9,10 +9,12 @@
       <h5 class="card-title">{{ joke.answer }}</h5>
     </div>
     <div class="card-footer">
-      <small class="text-muted">
+        <div><small class="text-muted ">
         Created on: {{ joke.created }}
+        </small></div>
+        <div><small class="text-muted">
         Last updated: {{ joke.updated }}
-      </small>
+      </small></div>
     </div>
   </div>
 {% endblock %}
