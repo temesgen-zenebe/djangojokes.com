@@ -1,4 +1,5 @@
 from django import forms
+
 from datetime import datetime
 
 class JobApplicationForm(forms.Form):
@@ -11,7 +12,7 @@ class JobApplicationForm(forms.Form):
     DAYS_WORK = (
         (1 ,'MON'),(2,'TUE'),(3,'WED'),(4,'FRI')
     )
-    YEARS = range(2021, datetime.now().year+1)
+    YEARS = range(datetime.now().year, datetime.now().year+2)
 
     first_name = forms.CharField(
         widget=forms.TextInput(
@@ -54,7 +55,9 @@ class JobApplicationForm(forms.Form):
         )
     )
     desired_hourly_wage = forms.DecimalField(
-        widget=forms.NumberInput(attrs={'min': '10.00', 'max': '100.00','step': '.25'})
+        widget=forms.NumberInput(
+            attrs={'min': '10.00', 'max': '100.00','step': '.25'}
+        )
     )
     cover_letter = forms.CharField()
     confirmation = forms.BooleanField(label='I certify that the information I have provided is true.', required=True)
