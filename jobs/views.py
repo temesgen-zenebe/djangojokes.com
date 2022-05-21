@@ -8,7 +8,6 @@ from .forms import JobApplicationForm
 from .models import Applicant
 
 # Create your views here.
-
 class JobAppView(CreateView):
     model = Applicant
     template_name = 'jobs/applicant_form.html'

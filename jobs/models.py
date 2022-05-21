@@ -17,7 +17,7 @@ class Job(models.Model):
     
     title = models.CharField(max_length = 200)
     created = models.DateTimeField(auto_now_add = True)
-    updated =  models.DateTimeField(auto_now =True)
+    updated = models.DateTimeField(auto_now =True)
 
     def __str__(self):
         return self.title
@@ -37,17 +37,14 @@ class Applicant(models.Model):
         validators=[URLValidator(schemes=['http', 'https'])],
         blank=True,
     )
-    employment_type = models.CharField(max_length=10 , choices=EMPLOYMENT_TYPES)
-    start_date = models.DateField(
-        help_text='The earliest date you can start working.',
-        validators=[validate_future_date]
-    )
-    desired_hourly_wage = models.DecimalField(max_digits=5, decimal_places=2)
+    employment_type = models.CharField(max_length = 10 , choices=EMPLOYMENT_TYPES)
+    start_date = models.DateField(validators=[validate_future_date])
+    desired_hourly_wage = models.DecimalField(max_digits = 5, decimal_places = 2)
     cover_letter = models.TextField()
     confirmation = models.BooleanField()
-    job = models.ForeignKey(Job,on_delete=models.CASCADE)
+    job = models.ForeignKey(Job,on_delete = models.CASCADE)
     created = models.DateTimeField(auto_now_add = True)
-    updated =  models.DateTimeField(auto_now =True)
+    updated = models.DateTimeField(auto_now =True)
     
     def __str__(self):
         return f'{self.first_name} {self.last_name} ({self.job})'

@@ -18,7 +18,7 @@ class JobAdmin(admin.ModelAdmin):
 @admin.register(Applicant)
 class ApplicantAdmin(admin.ModelAdmin):
     model = Applicant
-    list_display = ['first_name', 'last_name', 'job', 'created', 'updated']
+    list_display = ['first_name', 'last_name', 'job','created', 'updated']
 
     def get_readonly_fields(self, request, obj=None):
         if obj: # editing an existing object

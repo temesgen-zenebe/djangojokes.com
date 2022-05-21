@@ -14,15 +14,14 @@ class JobApplicationForm(forms.ModelForm):
     DAYS_WORK = ((1 ,'MON'),(2,'TUE'),(3,'WED'),(4,'FRI'))
     YEARS = range(datetime.now().year, datetime.now().year+2)
     start_date = forms.DateField(
-        help_text='The earliest date you can start working.',
-        required=False,
-        widget=forms.SelectDateWidget(
-            attrs={'style': 'width: 31%; display: inline-block; margin: 0 1%'},
-            years=YEARS,
-            #empty_label=("Choose Year", "Choose Month", "Choose Day"),  
-            
-        ),
-        error_messages = {'past_date': 'Please enter a future date.'}
+        help_text = 'The earliest date you can start working.',
+        required = False,
+        widget = forms.SelectDateWidget(
+            attrs = {'style': 'width: 31%; display: inline-block; margin: 0 1%'},
+            years = YEARS,
+            empty_label=("Year", "Month", "Day"),     
+        )
+        
     
     )
     available_days = forms.TypedMultipleChoiceField(
@@ -40,6 +39,7 @@ class JobApplicationForm(forms.ModelForm):
         #required=True
         validators=[validate_checked]
     )
+
     class Meta:
         model = Applicant
         fields = (
@@ -48,13 +48,9 @@ class JobApplicationForm(forms.ModelForm):
             'cover_letter', 'confirmation', 'job')
         widgets = {
             'first_name': forms.TextInput(attrs={'autofocus': True}),
-            'website': forms.TextInput(
-                attrs = {'placeholder':'https://www.example.com'}
-            ),
+            'website': forms.TextInput(attrs = {'placeholder':'https://www.example.com'}),
             'start_date': forms.SelectDateWidget(
-                attrs = {
-                    'style': 'width: 31%; display: inline-block; margin: 0 1%'
-                },
+                attrs = {'style': 'width: 31%; display: inline-block; margin: 0 1%'},
                 years = range(datetime.now().year, datetime.now().year+2)
             ),
             'desired_hourly_wage': forms.NumberInput(
