@@ -1,14 +1,17 @@
 import html
+from pyexpat import model
 from django.urls import reverse_lazy
-from django.views.generic import FormView, TemplateView
+from django.views.generic import CreateView, TemplateView
 
 from common.utils.email import send_email
 from .forms import JobApplicationForm
+from .models import Applicant
 
 # Create your views here.
 
-class JobAppView(FormView):
-    template_name = 'jobs/joke_writer.html'
+class JobAppView(CreateView):
+    model = Applicant
+    template_name = 'jobs/applicant_form.html'
     form_class = JobApplicationForm
     success_url = reverse_lazy('jobs:thanks')
 
