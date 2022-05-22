@@ -122,6 +122,14 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 DEFAULT_FROM_EMAIL = 'temf2006@gmail.com'
 
+#AUTHENTICATION_BACKENDS
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, even w/o `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth`-specific auth methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -156,14 +164,7 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300 # Default 300
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login' # Default: '/'
 ACCOUNT_USERNAME_REQUIRED = False # Default: True
 
-#AUTHENTICATION_BACKENDS
-AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, even w/o `allauth`
-    'django.contrib.auth.backends.ModelBackend',
 
-    # `allauth`-specific auth methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
