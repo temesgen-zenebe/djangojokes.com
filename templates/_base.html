@@ -49,7 +49,9 @@
                 Me
              </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">My Account</a>
+              <a class="dropdown-item" href="{% url 'my-account' %}">
+                My Account
+              </a>
               <a class="dropdown-item" href="#">My Django Jokes</a>
               <div class="dropdown-divider"></div>
               <form action="{% url 'account_logout' %}" method="post">
@@ -81,6 +83,8 @@
             </li>
             {% if  user.is_staff %}
               <li class="nav-item"><a class="nav-link" href="/admin/">Admin</a></li>
+            {% else %}
+              <li class="nav-item"><a class="nav-link" href="#">Content</a></li>
             {% endif %}
           </ul>
         </nav>
