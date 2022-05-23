@@ -17,6 +17,10 @@ class JokeCreateView(CreateView):
     form_class = JokeForm
     #fields = ['question', 'answer']
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 class JokeDeleteView(DeleteView):
     model = Joke
     success_url = reverse_lazy('jokes:list')

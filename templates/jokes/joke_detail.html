@@ -21,10 +21,12 @@
         <a href="{% url 'jokes:delete' joke.slug %}"
           class="btn btn-danger btn-sm mr-2">Delete</a>
       </div>
-        <div><small class="text-muted ">
-        Created on: {{ joke.created }}
-        Last updated: {{ joke.updated }}
-      </small></div>
+        <div>
+          <small class="text-muted">
+            Created on: {{ joke.created }} by {{ joke.user.username }}<br>
+            Last updated: {{ joke.updated }}
+          </small>
+      </div>
     </div>
   </div>
 {% endblock %}
