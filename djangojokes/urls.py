@@ -34,4 +34,4 @@ urlpatterns = [
     path('jobs/', include('jobs.urls')),
     path('jokes/', include('jokes.urls')),
     path('', include('pages.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
