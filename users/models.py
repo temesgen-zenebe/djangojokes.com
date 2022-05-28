@@ -1,9 +1,8 @@
 from django.contrib.auth.models import AbstractUser
-from django.db import models
-from django.urls import reverse
-
 from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
+from django.db import models
+from django.urls import reverse
 
 def validate_avatar(value):
     w, h = get_image_dimensions(value)
@@ -16,9 +15,11 @@ class CustomUser(AbstractUser):
     dob = models.DateField(
         verbose_name= "Date of Birth", null=True , blank=True
     )
-    avatar = models.ImageField(upload_to='avatars/', blank=True,
+    avatar = models.ImageField(
+        upload_to='avatars/', 
+        blank=True,
         help_text='Image must be 200px by 200px.',
-        validators=[validate_avatar]
+        validators=[validate_avatar],
     )
     def get_absolute_url(self):
         return reverse('my-account')
