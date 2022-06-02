@@ -19,3 +19,4 @@ def random_joke():
                 'answer': 'There are no jokes in the database.'
             }
         }
+    

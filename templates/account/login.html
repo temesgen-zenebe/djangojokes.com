@@ -9,7 +9,7 @@
   <div class="card-body">
     <form method="post" class="m-auto">
       {% csrf_token %}
-      {{ form|crispy }}
+      {{form|crispy}}
       <button class="form-control btn btn-primary">LOG IN</button>
     </form>
   </div>
