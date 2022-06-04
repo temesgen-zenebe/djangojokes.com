@@ -105,6 +105,7 @@ class Joke(models.Model):
     )
     #tags = models.ManyToManyField(Tag, blank=True)
     tags = models.ManyToManyField('Tag', blank=True, related_name='jokes')
+    
     slug = models.SlugField(
         max_length=50, unique=True, null=False, editable=False
     )
@@ -133,6 +134,7 @@ class Joke(models.Model):
             self.slug = unique_slug(value, type(self))
 
         super().save(*args, **kwargs)
+    
 
     def __str__(self):
         return self.question

@@ -18,8 +18,6 @@ app_name = 'jokes'
     
 ]"""
 
-
-
 urlpatterns = [
     path('joke/<slug>/update/', JokeUpdateView.as_view(), name='update'),
     path('joke/<slug>/delete/', JokeDeleteView.as_view(), name='delete'),
