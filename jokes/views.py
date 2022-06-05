@@ -49,6 +49,7 @@ class JokeDetailView(DetailView):
 class JokeListView(ListView):
     model = Joke
 
+
 def vote(request, slug):
     user = request.user # The logged-in user (or AnonymousUser).
     joke = Joke.objects.get(slug=slug) # The joke instance.

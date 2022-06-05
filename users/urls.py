@@ -9,5 +9,6 @@ urlpatterns = [
         name="account_change_password"
     ),
     path('my-account/', MyAccountPageView.as_view(), name='my-account'),
+   
 ]
 

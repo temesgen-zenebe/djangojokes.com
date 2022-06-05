@@ -2,9 +2,8 @@
 {% load static %}
 {% block title %}Joke{% endblock %}
 {% block javascript %}
-  <script>
-    const ajaxURL = "{% url 'jokes:ajax-vote' joke.slug %}";
-  </script>
+  <script> const ajaxURL = "{% url 'jokes:ajax-vote' joke.slug %}";</script>
+  <script> const isAuthenticated = "{{ user.is_authenticated|lower }}";</script>
   <script src="{% static 'js/jokes.js' %}"></script>
 {% endblock %}
 {% block main %}
