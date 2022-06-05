@@ -48,6 +48,7 @@ class JokeDetailView(DetailView):
 
 class JokeListView(ListView):
     model = Joke
+    paginate_by = 11
 
 
 def vote(request, slug):

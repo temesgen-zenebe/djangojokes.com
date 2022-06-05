@@ -4,8 +4,6 @@
 {% block title %}Jokes{% endblock %}
 {% block main %}
   <!---
-
-
   <a class="btn btn-success btn-sm float-right" href="{% url 'jokes:create' %}">+ New Joke</a>
   <h2>Jokes</h2>
   <ul class="list-group list-group-flush mb-3">
@@ -63,4 +61,6 @@
     </table>
    
   </div>
+  {% include 'includes/pagination.html' %}
+  
 {% endblock %}
