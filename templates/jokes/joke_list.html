@@ -63,12 +63,14 @@
             {% else %}
               <th><a href="?order=creator&direction=asc&q={{ request.GET.q }}">Creator</a></th>
             {% endif %}
+            <th>Rating</th>
           </tr>
         {% endwith %}
       </thead>
       <tbody>
         {% for joke in joke_list %}
           <tr>
+            
             <td>
               <a href="{{ joke.get_absolute_url }}">{{ joke.question }}</a>
             </td>
@@ -98,8 +100,17 @@
                 </small>
               {% endif %}
             </td>
+            <td>
+              <div id="rating-container" title="{{ joke.rating }}">
+                <div id="rating" 
+                  style="width:{% widthratio joke.rating 10 100 %}%;">
+                </div>
+              </div>
+              ({{ joke.num_votes }} vote{{ joke.num_votes|pluralize }})
+            </td>
           </tr>
         {% endfor %}
+          
       </tbody>
     </table>
   </div>
