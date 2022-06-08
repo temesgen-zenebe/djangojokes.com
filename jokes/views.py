@@ -69,8 +69,8 @@ class JokeListView(ListView):
             username = self.kwargs['username']
             qs = qs.filter(user__username=username)
 
-        return qs.order_by(ordering)
-
+        #return qs.order_by(ordering)
+        return qs.prefetch_related('category','user').order_by(ordering)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
