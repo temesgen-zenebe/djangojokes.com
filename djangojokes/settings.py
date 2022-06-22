@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-0d@)hvh0$rtxmczn^$l8lo^gb5aa0p^vs*50l+k81uu_5mo9^x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jackjokes.herokuapp.com/']
+ALLOWED_HOSTS = ['jackjokes.herokuapp.com']
 
 INTERNAL_IPS = [ # Necessary for the Debug Toolbar
     '127.0.0.1',
