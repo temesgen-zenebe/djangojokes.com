@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0d@)hvh0$rtxmczn^$l8lo^gb5aa0p^vs*50l+k81uu_5mo9^x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jackjokes.herokuapp.com/']
 
 INTERNAL_IPS = [ # Necessary for the Debug Toolbar
     '127.0.0.1',
@@ -101,6 +101,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+import dj_database_url
+
+DATABASES = { 'default' : dj_database_url.config()}
 
 """DATABASES = {
     'default': {
@@ -108,16 +111,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jokes',
-        'USER': 'postgres',
-        'PASSWORD': '1117t',
-        'HOST': 'localhost',
-        'PORT': 5433
-    }
-}   
+   
 
 # EMAIL
 SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
