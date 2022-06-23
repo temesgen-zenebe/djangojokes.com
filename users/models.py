@@ -4,6 +4,7 @@ from django.core.files.images import get_image_dimensions
 from django.db import models
 from django.urls import reverse
 
+
 def validate_avatar(value):
     w, h = get_image_dimensions(value)
     if w > 200 or h > 200:

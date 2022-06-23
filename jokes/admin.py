@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Category,Joke,Tag,JokeVote
+from common.admin import DjangoJokesAdmin
 # Register your models here.
 
 @admin.register(Category)
@@ -13,9 +14,15 @@ class CategoryAdmin(admin.ModelAdmin):
         return ()
 
 @admin.register(Joke)
-class JokeAdmin(admin.ModelAdmin):
+class JokeAdmin(DjangoJokesAdmin):
     model = Joke
-    list_display = ['question', 'created', 'updated']
+
+    # List Attributes
+    date_hierarchy = 'updated'
+    list_display = ['question', 'category', 'updated']
+    list_filter = ['updated', 'category', 'tags']
+    ordering = ['-updated']
+    search_fields = ['question', 'answer']
 
     def get_readonly_fields(self, request, obj=None):
 
