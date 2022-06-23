@@ -46,15 +46,14 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     
 
+    
     # Third-party
     'crispy_forms',
-    'debug_toolbar',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'debug_toolbar',
     
-
-  
     # Local apps
     'common.apps.CommonConfig',
     'jobs.apps.JobsConfig',
