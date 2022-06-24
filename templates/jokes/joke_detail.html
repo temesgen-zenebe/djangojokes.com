@@ -4,6 +4,7 @@
 {% block javascript %}
   <script>
     const ajaxURL = "{% url 'jokes:ajax-vote' joke.slug %}";
+    const isAnonymous = true;
   </script>
   <script src="{% static 'js/jokes.js' %}"></script>
 {% endblock %}
